@@ -38,3 +38,9 @@ coverage
 /*.tsbuildinfo
 package-lock.json
 yarn-lock.json
+
+# configuration files
+.husky/
+.storybook/
+.test/
+.vscode/
