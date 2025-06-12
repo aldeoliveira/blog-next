@@ -1,5 +1,3 @@
-import Home from 'templates/Home';
-
-export default function Index() {
-  return <Home />;
+export default function Home() {
+  return <h1>Olá, Mundo!</h1>;
 }
