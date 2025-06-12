@@ -1,5 +1,5 @@
-import { useEffect, useState } from 'react';
 import { PostData } from 'domain/posts/post';
+import { GetStaticProps } from 'next';
 
 const getPosts = async (): Promise<PostData[]> => {
   const posts = await fetch('http://localhost:8000/posts');
@@ -8,13 +8,11 @@ const getPosts = async (): Promise<PostData[]> => {
   return jsonPosts;
 };
 
-export default function Home() {
-  const [posts, setPosts] = useState<PostData[]>([]);
+export type HomeProps = {
+  posts: PostData[];
+};
 
-  useEffect(() => {
-    getPosts().then((response) => setPosts(response));
-  }, []);
-
+export default function Home({ posts }: HomeProps) {
   return (
     <div>
       {posts.map((post) => (
@@ -23,3 +21,11 @@ export default function Home() {
     </div>
   );
 }
+
+export const getStaticProps: GetStaticProps = async () => {
+  const posts = await getPosts();
+
+  return {
+    props: { posts },
+  };
+};
