@@ -61,7 +61,7 @@ export type PostData = {
   id: number;
   title: string;
   content: string;
-  slurg: string;
+  slug: string;
   author: PostAuthor;
   category: PostCategory;
   created_by: PostCreatedBy;
