@@ -16,7 +16,7 @@ export default function HomePage({ posts }: HomePageProps) {
       <MainContainer>
         <Container>
           {posts.map((post) => (
-            <PostCard key={post.slug} slug={post.slug} title={post.title} />
+            <PostCard key={post.slug} id={post.id} title={post.title} />
           ))}
         </Container>
       </MainContainer>

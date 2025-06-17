@@ -3,7 +3,7 @@ import { Container, PostCardCover, PostCardHeading } from './styled';
 import { useEffect, useState } from 'react';
 
 export type PostCardProps = {
-  slug: string;
+  id: number;
   title: string;
 };
 
@@ -12,7 +12,7 @@ const getRandomCoverUrl = (): string => {
   return `https://picsum.photos/id/${id}/500/500`;
 };
 
-export const PostCard = ({ slug, title }: PostCardProps) => {
+export const PostCard = ({ id, title }: PostCardProps) => {
   const [coverUrl, setCoverUrl] = useState('');
 
   useEffect(() => {
@@ -23,14 +23,14 @@ export const PostCard = ({ slug, title }: PostCardProps) => {
   return (
     <Container>
       <PostCardCover>
-        <Link href="/post/[slug]" as={`/post/${slug}`}>
+        <Link href="/post/[id]" as={`/post/${id}`}>
           <a>
             <img src={coverUrl} alt={title} />
           </a>
         </Link>
       </PostCardCover>
       <PostCardHeading>
-        <Link href="/post/[slug]" as={`/post/${slug}`}>
+        <Link href="/post/[id]" as={`/post/${id}`}>
           <a>{title}</a>
         </Link>
       </PostCardHeading>
