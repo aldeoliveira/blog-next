@@ -3,6 +3,7 @@ import { Header } from 'components/Header';
 import { Heading } from 'components/Heading';
 import { MainContainer } from 'components/MainContainer';
 import { PostCover } from 'components/PostCover';
+import { PostDetails } from 'components/PostDetails';
 import { PostData } from 'domain/posts/post';
 import { useEffect, useState } from 'react';
 
@@ -30,6 +31,11 @@ export const Post = ({ post }: PostProps) => {
       <MainContainer>
         <Heading>{post.title}</Heading>
         <PostCover coverUrl={coverUrl} alt={post.title} />
+        <PostDetails
+          author={post.author.name}
+          category={post.category.name}
+          date={post.created_at}
+        />
         <div>{post.content}</div>
       </MainContainer>
 
