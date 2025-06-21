@@ -1,3 +1,4 @@
+import { Post } from 'containers/Post';
 import { getAllPosts } from 'data/posts/get-all-posts';
 import { getPost } from 'data/posts/get-post';
 import { PostData } from 'domain/posts/post';
@@ -9,12 +10,7 @@ export type DynamicPostProps = {
 
 // Nosso componente
 export default function DynamicPost({ post }: DynamicPostProps) {
-  return (
-    <div>
-      <h1>Id</h1>
-      <p>{post.title}</p>
-    </div>
-  );
+  return <Post post={post} />;
 }
 
 // Pega todos os ids de todos os posts banco
